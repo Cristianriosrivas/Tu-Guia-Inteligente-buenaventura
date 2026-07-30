@@ -37,9 +37,11 @@ Clima en vivo y Favoritos= pequeños extras interactivos para reforzar la sensac
 
 Es un archivo único, sin instalación ni dependencias:
 
-git clone https://github.com/tu-usuario/buenaventura-guia.git
+git clone (https://github.com/Cristianriosrivas/Tu-Guia-Inteligente-buenaventura.git)
 
-cd buenaventura-guia
+
+cd Tu Guía Inteligente buenaventura
+
 
 ⚠️ Sobre el chat y el planificador de IA
 
