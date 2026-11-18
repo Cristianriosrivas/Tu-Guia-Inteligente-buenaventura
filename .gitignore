@@ -1,0 +1,15 @@
+node_modules
+dist
+.env
+.env.local
+*.log
+.DS_Store
+
+# Impeccable: archivos de trabajo locales
+.impeccable/questions/
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/decision/
+.impeccable/config.local.json
+supabase/.temp
+*.tsbuildinfo

@@ -1,0 +1,35 @@
+{
+  "name": "tu-guia-inteligente-buenaventura",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Guía turística inteligente de Buenaventura, Colombia: 3D, clima y mar en vivo, planificador y asistente con IA.",
+  "author": "Cristian Rios Rivas",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.8.2",
+    "html-to-image": "^1.11.13",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^1.75.0",
+    "motion": "^14.14.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-leaflet": "^5.0.0",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.22",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.187.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "typescript": "~5.9.3",
+    "vite": "^8.3.8"
+  }
+}

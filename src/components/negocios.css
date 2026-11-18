@@ -1,0 +1,81 @@
+.cartelera {
+  list-style: none;
+  margin: 56px 0 0;
+  padding: 0;
+  border-top: 4px solid var(--papel);
+}
+.cartelera li {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1.1fr) minmax(0, 1.2fr) auto;
+  gap: 8px 28px;
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 2px solid var(--filete);
+}
+.cartelera-categoria {
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--papel);
+}
+.cartelera-nombre {
+  font-family: var(--f-cartel);
+  font-weight: 900;
+  font-stretch: 56%;
+  font-size: clamp(2rem, 4.4vw, 3.6rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+.cartelera-desc {
+  line-height: 1.5;
+  color: var(--texto-suave);
+}
+.cartelera-desc em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--papel);
+}
+
+.sumate {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px 32px;
+  margin-top: 48px;
+  padding: 26px 28px;
+  border-radius: var(--radio);
+  background: var(--mar);
+}
+.sumate p {
+  max-width: 52ch;
+  font-size: 1.125rem;
+  line-height: 1.45;
+}
+.sumate a {
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .cartelera li {
+    grid-template-columns: 1fr auto;
+  }
+  .cartelera-nombre {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .cartelera-categoria {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .cartelera .etiqueta-ejemplo {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+  .cartelera-desc {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+}

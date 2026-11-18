@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-18T19:30:00-05:00",
+  "title": "Design System: Tu Guía Inteligente · Buenaventura",
+  "extensions": {
+    "colorMeta": {
+      "mar": { "role": "primary", "displayName": "Mar del Pacífico", "canonical": "#0f2f57", "tonalRamp": ["#061428", "#0a2140", "#0f2f57", "#1d4878", "#3a6596", "#6d8fb5", "#a7bdd5", "#dce5ef"] },
+      "sol": { "role": "primary", "displayName": "Sol de Bahía", "canonical": "#f2b51d", "tonalRamp": ["#4a3404", "#7a560a", "#b07c10", "#f2b51d", "#f6c650", "#f9d67f", "#fbe6b1", "#fdf4dd"] },
+      "achiote": { "role": "secondary", "displayName": "Achiote", "canonical": "#bf3519", "tonalRamp": ["#3d0f06", "#66190b", "#8f2411", "#bf3519", "#d65a3e", "#e48a73", "#efb8a9", "#f8e3dd"] },
+      "manglar": { "role": "secondary", "displayName": "Manglar", "canonical": "#14663f", "tonalRamp": ["#05200f", "#0a3a22", "#14663f", "#2a8058", "#4f9c77", "#7fba9c", "#b4d7c4", "#e3f0e8"] },
+      "ola": { "role": "tertiary", "displayName": "Ola", "canonical": "#2a6fa8" },
+      "mar-hondo": { "role": "tertiary", "displayName": "Mar Hondo", "canonical": "#0a2140" },
+      "papel": { "role": "neutral", "displayName": "Papel crudo", "canonical": "#f4ecdc" },
+      "tinta-suave": { "role": "neutral", "displayName": "Tinta suave", "canonical": "#4a6384" },
+      "papel-suave": { "role": "neutral", "displayName": "Papel suave", "canonical": "#c9c3b4" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Cartel", "purpose": "The BUENA / VENTURA bill and the closing line only." },
+      "headline": { "displayName": "Título de sección", "purpose": "Section titles, uppercase, max 16ch." },
+      "title": { "displayName": "Nombre", "purpose": "Card, route, directory and day names." },
+      "body": { "displayName": "Texto", "purpose": "Descriptions and intros, 58–62ch." },
+      "label": { "displayName": "Etiqueta de dato", "purpose": "Small uppercase labels over live values and data bands." }
+    },
+    "shadows": [
+      { "name": "card-lift", "value": "0 0 0 2px #0f2f57, 0 18px 30px -22px rgba(10,33,64,0.55)", "purpose": "Poster cards at rest." },
+      { "name": "handbill", "value": "0 0 0 2px #0f2f57, 0 30px 60px -24px rgba(10,33,64,0.75)", "purpose": "Draggable floating panels." },
+      { "name": "sheet", "value": "-24px 0 60px -30px rgba(10,33,64,0.8)", "purpose": "Place detail drawer." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Entrances, stamps, press feedback." },
+      { "name": "ease-in-out", "value": "cubic-bezier(0.77, 0, 0.175, 1)", "purpose": "On-screen movement." },
+      { "name": "ease-drawer", "value": "cubic-bezier(0.32, 0.72, 0, 1)", "purpose": "Sheets, drawers and the mobile menu." },
+      { "name": "press", "value": "transform 160ms ease-out, scale(0.97)", "purpose": "Every pressable control." }
+    ],
+    "breakpoints": [
+      { "name": "panel-sheet", "value": "620px" },
+      { "name": "hero-phone", "value": "760px" },
+      { "name": "stack", "value": "900px" },
+      { "name": "menu", "value": "1080px" },
+      { "name": "hero-band", "value": "1180px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón achiote",
+      "kind": "button",
+      "refersTo": "button-achiote",
+      "description": "Primary action on paper and green fields.",
+      "html": "<button class=\"ds-btn-achiote\">Armar mi plan <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-achiote{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 22px;border:0;border-radius:999px;background:#bf3519;color:#f4ecdc;font-family:Anybody,'Arial Narrow',sans-serif;font-weight:800;font-stretch:82%;font-size:17px;letter-spacing:.02em;text-transform:uppercase;cursor:pointer;transition:transform 160ms cubic-bezier(.23,1,.32,1),background-color 200ms ease}.ds-btn-achiote:hover{background:#a82d14}.ds-btn-achiote:active{transform:scale(.97)}.ds-btn-achiote:focus-visible{outline:3px solid #f2b51d;outline-offset:3px}"
+    },
+    {
+      "name": "Botón sol",
+      "kind": "button",
+      "refersTo": "button-sol",
+      "description": "Primary action on sea-blue fields.",
+      "html": "<button class=\"ds-btn-sol\">Registrar mi negocio</button>",
+      "css": ".ds-btn-sol{display:inline-flex;align-items:center;min-height:48px;padding:12px 22px;border:0;border-radius:999px;background:#f2b51d;color:#0f2f57;font-family:Anybody,'Arial Narrow',sans-serif;font-weight:800;font-stretch:82%;font-size:17px;text-transform:uppercase;cursor:pointer;transition:transform 160ms cubic-bezier(.23,1,.32,1),background-color 200ms ease}.ds-btn-sol:hover{background:#ffc531}.ds-btn-sol:active{transform:scale(.97)}.ds-btn-sol:focus-visible{outline:3px solid #f4ecdc;outline-offset:3px}"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Toggle for days, budget and interests; floods with the field's active ink when pressed.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\" aria-pressed=\"true\">Ballenas</button><button class=\"ds-chip\" aria-pressed=\"false\">Selva</button></div>",
+      "css": ".ds-chips{display:flex;gap:8px;padding:16px;background:#14663f}.ds-chip{min-height:42px;padding:8px 16px;border:0;border-radius:999px;background:transparent;color:#f4ecdc;box-shadow:inset 0 0 0 2px rgba(244,236,220,.3);font-family:Figtree,system-ui,sans-serif;font-weight:650;font-size:14px;cursor:pointer;transition:background-color 180ms ease,color 180ms ease,transform 160ms cubic-bezier(.23,1,.32,1)}.ds-chip:hover{box-shadow:inset 0 0 0 2px currentColor}.ds-chip:active{transform:scale(.97)}.ds-chip[aria-pressed=true]{background:#f2b51d;color:#0f2f57;box-shadow:none}.ds-chip:focus-visible{outline:3px solid #f2b51d;outline-offset:3px}"
+    },
+    {
+      "name": "Celdas de programa",
+      "kind": "nav",
+      "refersTo": "celda-programa-activa",
+      "description": "Sticky program band; the cell for the section in view floods achiote.",
+      "html": "<nav class=\"ds-programa\"><a href=\"#\">Hoy</a><a href=\"#\" aria-current=\"true\">Lugares</a><a href=\"#\">Rutas</a></nav>",
+      "css": ".ds-programa{display:flex;height:64px;background:#0f2f57;border-bottom:3px solid #f2b51d}.ds-programa a{flex:1;display:flex;align-items:center;justify-content:center;border-right:2px solid rgba(242,181,29,.45);color:#f4ecdc;text-decoration:none;font-family:Anybody,'Arial Narrow',sans-serif;font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;transition:background-color 220ms ease,color 220ms ease}.ds-programa a:hover{background:rgba(242,181,29,.14);color:#f2b51d}.ds-programa a[aria-current=true]{background:#bf3519;color:#f4ecdc}.ds-programa a:focus-visible{outline:3px solid #f2b51d;outline-offset:-3px}"
+    },
+    {
+      "name": "Afiche de lugar",
+      "kind": "card",
+      "refersTo": "afiche",
+      "description": "Place poster: two-ink duotone photo, compressed title, uniform data band.",
+      "html": "<article class=\"ds-afiche\"><div class=\"ds-afiche-foto\"></div><div class=\"ds-afiche-texto\"><h3>Juanchaco</h3><p>Pueblo de pescadores y puerta de entrada al avistamiento de ballenas.</p><dl><div><dt>Zona</dt><dd>Juanchaco</dd></div><div><dt>Época</dt><dd>Julio a octubre</dd></div></dl></div></article>",
+      "css": ".ds-afiche{width:300px;background:#f4ecdc;color:#0f2f57;border-radius:14px;overflow:hidden;box-shadow:0 0 0 2px #0f2f57,0 18px 30px -22px rgba(10,33,64,.55);transition:box-shadow 260ms ease}.ds-afiche:hover{box-shadow:0 0 0 2px #0f2f57,0 28px 44px -24px rgba(10,33,64,.65)}.ds-afiche-foto{aspect-ratio:4/3;background:#f2b51d;background-image:radial-gradient(circle,rgba(15,47,87,.9) 1.1px,transparent 1.4px);background-size:5px 5px}.ds-afiche-texto{padding:16px 18px 18px}.ds-afiche h3{margin:0;font-family:Anybody,'Arial Narrow',sans-serif;font-weight:900;font-stretch:62%;font-size:30px;line-height:.95;text-transform:uppercase}.ds-afiche p{margin:8px 0 0;color:#4a6384;font-family:Figtree,system-ui,sans-serif;font-size:15px;line-height:1.45}.ds-afiche dl{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 0;padding-top:10px;border-top:2px solid #0f2f57}.ds-afiche dt{font:750 11px Figtree,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#4a6384}.ds-afiche dd{margin:2px 0 0;font:700 13px Figtree,sans-serif}"
+    },
+    {
+      "name": "Campo de fecha",
+      "kind": "input",
+      "description": "Paper field on the green planner.",
+      "html": "<div style=\"background:#14663f;padding:16px\"><input class=\"ds-input\" type=\"date\" value=\"2026-11-21\"></div>",
+      "css": ".ds-input{min-height:46px;padding:8px 14px;border:0;border-radius:12px;background:#f4ecdc;color:#0f2f57;font:700 16px Figtree,system-ui,sans-serif;box-shadow:inset 0 0 0 2px rgba(15,47,87,.22)}.ds-input:focus-visible{outline:3px solid #f2b51d;outline-offset:3px;box-shadow:inset 0 0 0 2px #0f2f57}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Cartel del Pacífico",
+    "overview": "The page is a silkscreened festival poster that happens to work: Buenaventura billed like a music festival of the Pacific, with the humpback whale as the headliner. Every section is a full field of one flat ink, and type is set the way a poster printer sets a bill: compressed, heavy, uppercase, stacked tight. Depth comes from print, not from screens: half-tone, misregistration, two-ink duotones, the turbante border strip and rubber stamps.",
+    "keyCharacteristics": [
+      "Flat ink fields own whole sections; no gradients on surfaces.",
+      "Anybody at narrow widths (52–80 %) for every display voice; Figtree for reading.",
+      "Print devices with a job: half-tone for shading, duotone for photos, stamps for saved state, a border strip between bands.",
+      "Floating panels (\"volantes\") are paper handbills that can be dragged and tilt with velocity."
+    ],
+    "rules": [
+      { "name": "The Full Field Rule", "body": "An ink is either a whole section ground or a functional mark (chip, button, stamp, line). Never a scattered accent on a neutral page.", "section": "colors" },
+      { "name": "The Tinted Secondary Rule", "body": "Secondary text is tinted from its own field, never a neutral gray.", "section": "colors" },
+      { "name": "The Numbers in Ink Rule", "body": "Live values are set in the display face with tabular figures; their labels stay small in Figtree.", "section": "typography" },
+      { "name": "The No Kicker Rule", "body": "No small label above a heading. Context lines go under the title.", "section": "typography" },
+      { "name": "The Misregistration Rule", "body": "The only offset second color is a print plate under display type (0.016em), and it registers to zero on hover. It is never a box shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do give every new section one full ink field from the five-ink palette.",
+      "Do set titles in Anybody at 52–72 % width, uppercase, with the context line underneath.",
+      "Do reprint photographs as two-ink duotones with the half-tone overlay, and show the true color on hover or in detail views.",
+      "Do mark saved or chosen things with the stamp, not a color swap alone.",
+      "Do use the turbante strip only between major bands."
+    ],
+    "donts": [
+      "Don't put a kicker or small label above a heading.",
+      "Don't use gradients, glass or blur as decoration on surfaces.",
+      "Don't use hard zero-blur box shadows; the only offset color is the registration plate under display type.",
+      "Don't use gray for secondary text; tint it from the field.",
+      "Don't use emoji or glyphs as icons; icons are Lucide at 2.2–2.6 stroke."
+    ]
+  }
+}

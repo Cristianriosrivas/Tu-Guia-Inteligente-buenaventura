@@ -1,0 +1,199 @@
+.hoy {
+  padding-block: clamp(64px, 8vw, 112px);
+}
+
+.hoy-rejilla {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
+  grid-template-areas:
+    'cabeza marea'
+    'datos marea'
+    'pronostico pronostico';
+  gap: 36px 56px;
+}
+
+.hoy-cabeza {
+  grid-area: cabeza;
+}
+.hoy-aviso {
+  margin-top: 16px;
+  font-weight: 650;
+}
+
+.hoy-marea {
+  grid-area: marea;
+  align-self: start;
+  border-top: 4px solid var(--mar);
+  padding-top: 14px;
+}
+.hoy-marea-cabeza {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.hoy-marea h3 {
+  font-size: 1.5rem;
+  font-stretch: 70%;
+  text-transform: uppercase;
+}
+.tendencia {
+  font-family: var(--f-cartel);
+  font-weight: 850;
+  font-stretch: 80%;
+  text-transform: uppercase;
+  background: var(--mar);
+  color: var(--sol);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+}
+
+.trazo {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.trazo .reticula {
+  stroke: var(--mar);
+  stroke-opacity: 0.25;
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
+}
+.trazo .eje {
+  fill: var(--mar);
+  font-family: var(--f-texto);
+  font-size: 12px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+.trazo .eje.fuerte {
+  font-weight: 800;
+  font-size: 13px;
+}
+.trazo .area {
+  fill: var(--mar);
+  fill-opacity: 0.12;
+}
+.trazo .linea-marea {
+  fill: none;
+  stroke: var(--mar);
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.trazo .ahora {
+  stroke: var(--achiote);
+  stroke-width: 2;
+}
+.trazo .punto {
+  fill: var(--achiote);
+}
+.trazo .punto-ple {
+  fill: var(--mar);
+}
+.trazo-vacio {
+  display: grid;
+  place-items: center;
+  min-height: 200px;
+  font-weight: 650;
+  border: 2px dashed var(--filete);
+  border-radius: var(--radio);
+}
+.nota-modelo {
+  margin-top: 8px;
+  font-size: var(--t-chico);
+  color: var(--texto-suave);
+  max-width: 62ch;
+}
+
+.hoy-datos {
+  grid-area: datos;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  border-top: 2px solid var(--mar);
+}
+.hoy-datos > div {
+  padding: 14px 12px 14px 0;
+  border-bottom: 2px solid var(--filete);
+}
+.hoy-datos dt {
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+.hoy-datos dd {
+  margin: 2px 0 0;
+  font-family: var(--f-cartel);
+  font-weight: 900;
+  font-stretch: 60%;
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.hoy-pronostico {
+  grid-area: pronostico;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 4px solid var(--mar);
+}
+.hoy-pronostico li {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  padding: 18px 16px 4px 0;
+  border-right: 2px solid var(--filete);
+  padding-left: 16px;
+}
+.hoy-pronostico li:first-child {
+  padding-left: 0;
+}
+.hoy-pronostico li:last-child {
+  border-right: 0;
+}
+.pron-dia {
+  font-family: var(--f-cartel);
+  font-weight: 850;
+  font-stretch: 90%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pron-temp {
+  font-family: var(--f-cartel);
+  font-weight: 900;
+  font-stretch: 60%;
+  font-size: 2rem;
+  line-height: 1;
+}
+.pron-temp span {
+  opacity: 0.6;
+}
+.pron-lluvia {
+  font-size: var(--t-chico);
+  font-weight: 650;
+  color: var(--texto-suave);
+}
+
+@media (max-width: 900px) {
+  .hoy-rejilla {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'cabeza'
+      'marea'
+      'datos'
+      'pronostico';
+    gap: 32px;
+  }
+  .hoy-pronostico {
+    grid-template-columns: repeat(5, minmax(84px, 1fr));
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+}

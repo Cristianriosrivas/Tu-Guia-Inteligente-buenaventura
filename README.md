@@ -1,62 +1,71 @@
-Qué es este proyecto
+# Tu Guía Inteligente · Buenaventura
 
-Es un sitio de una sola página tipo folleto/landing page: su objetivo principal es mostrar y promocionar el destino de forma visual y atractiva, no operar como una plataforma de reservas real.
+Guía turística interactiva de Buenaventura, Colombia, diseñada como un **cartel serigrafiado vivo** del Pacífico: una ballena jorobada en 3D salta entre las letras, el mar y el clima se leen en vivo y el planificador arma tu viaje en un minuto.
 
-+Contenido y navegación: reales y funcionales (secciones, filtros, favoritos, geolocalización).
+Todo es **gratis**: librerías de código abierto, datos abiertos y la capa gratuita de la IA de Gemini.
 
-+Chat y planificador con IA: funcionales de verdad (llaman a un modelo de lenguaje).
+## Qué tiene
 
-+Botones como "Iniciar Sesión", "Reservar" o "Contáctanos": son parte del diseño visual, no están conectados a ningún sistema (no hay backend, base de datos ni autenticación real).
+| Sección | Qué hace |
+| --- | --- |
+| **Cartel de inicio** | Ballena jorobada 3D hecha por código (Three.js) con sombreado de tintas planas y trama de medio tono. Datos en vivo (temperatura, oleaje, atardecer, temporada de ballenas) y planificador rápido. |
+| **El mar de hoy** | Curva de marea de las próximas 24 h, oleaje, temperatura del agua y pronóstico de 5 días (Open-Meteo, sin clave). |
+| **Lugares** | 13 lugares reales con fotos libres de Wikimedia Commons en duotono, filtros, orden por cercanía con tu ubicación y vista de mapa (OpenStreetMap + CARTO). Ficha detallada con cómo llegar, mejor época y consejo local. |
+| **Rutas** | 5 recorridos en una tira de carteles que se arrastra; cada parada abre su lugar. |
+| **Dormir y comer** | Hospedaje y restaurantes por zona, y los platos típicos del Pacífico. |
+| **Negocios locales** | Directorio de emprendimientos y botón para registrar un negocio (abre un issue en este repositorio). |
+| **Planificador** | Reparte tus días por zonas, cuida los traslados en lancha, sugiere hospedaje y estima costos. Si la IA está activa, Gemini lo afina. Se descarga como imagen, se agrega al calendario (.ics) o se comparte por enlace. |
+| **Guía virtual** | Asistente en un panel que se arrastra por la pantalla. Responde con Gemini cuando está configurado y, si no, con un motor local que usa los datos de la guía y el clima en vivo. |
+| **Mi lista** | Favoritos sellados que se guardan en tu dispositivo. |
 
-+Lugares, hoteles, rutas, etc.: son datos de ejemplo escritos directamente en el código, no vienen de una base de datos.
+> Los lugares son reales; las coordenadas son aproximadas y los precios, de referencia. Las fichas de hoteles, restaurantes y negocios marcadas como **Ejemplo** son de demostración.
 
+## Cómo correrlo
 
+Necesitas [Node.js](https://nodejs.org/) 20.19 o superior.
 
-*Secciones*
+```bash
+git clone https://github.com/Cristianriosrivas/Tu-Guia-Inteligente-buenaventura.git
+cd Tu-Guia-Inteligente-buenaventura
+npm install
+npm run dev
+```
 
+Abre <http://localhost:5173>. Para generar la versión de producción: `npm run build`.
 
-Inicio= hero con imagen, estadísticas y presentación general.
+## Publicación gratis en GitHub Pages
 
-Lugares de Interés= catálogo filtrable por categoría, con opción de ordenar por cercanía usando la ubicación del navegador.
+El flujo `.github/workflows/pages.yml` construye y publica el sitio en cada `push` a `main`.
 
-Rutas Turísticas= itinerarios sugeridos con duración y número de paradas.
+1. En GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+2. Haz `push` a `main`. El sitio queda en `https://cristianriosrivas.github.io/Tu-Guia-Inteligente-buenaventura/`.
 
-Hoteles y Restaurantes= fichas con calificación, ubicación y precios de referencia.
+## IA gratis con Gemini (opcional)
 
-Negocios Locales= directorio de emprendimientos de la comunidad.
+La clave de Gemini **nunca** va en el código público. Vive como secreto en una función gratuita de Supabase (`supabase/functions/guia-ia`) que hace de puente. Sin ella, la guía funciona igual con el motor local.
 
-Planificador IA= genera un itinerario de ejemplo día por día según presupuesto, duración e intereses.
+1. Crea una clave gratuita en [Google AI Studio](https://aistudio.google.com/apikey).
+2. En tu proyecto de [Supabase](https://supabase.com/) (plan gratuito), despliega la función `guia-ia` y agrega el secreto `GEMINI_API_KEY` en **Edge Functions → Secrets**. Opcionales: `GEMINI_MODEL` (por defecto `gemini-3.5-flash-lite`) y `ALLOWED_ORIGINS`.
+3. En GitHub: **Settings → Secrets and variables → Actions → Variables** crea `IA_ENDPOINT` con la URL de la función, por ejemplo `https://<tu-proyecto>.supabase.co/functions/v1/guia-ia`.
+4. Para probar en local, crea `.env.local` con `VITE_IA_ENDPOINT=<la misma URL>`.
 
-Chat flotante= asistente que responde preguntas sobre el destino usando la información del propio sitio como contexto.
+La función limita el tamaño de las preguntas, acepta solo los orígenes permitidos y frena abusos básicos por IP.
 
-Clima en vivo y Favoritos= pequeños extras interactivos para reforzar la sensación de "guía inteligente".
+## Tecnología
 
+React 19 · Vite · TypeScript · Three.js con React Three Fiber · Motion · Leaflet · Lucide · Open-Meteo · OpenStreetMap/CARTO · Wikimedia Commons · Gemini API · Supabase Edge Functions.
 
-*Cómo verlo*
+## Créditos
 
+- Fotografías: autores de Wikimedia Commons, con licencias Creative Commons (detalle en el pie de la página y en `src/data/fotos.ts`).
+- Clima y mar: [Open-Meteo](https://open-meteo.com/) (CC BY 4.0).
+- Mapa: © colaboradores de [OpenStreetMap](https://www.openstreetmap.org/copyright) y [CARTO](https://carto.com/attributions).
+- La versión original de un solo archivo está en `legacy/tu-guia-original.html`.
 
-Es un archivo único, sin instalación ni dependencias:
+## Autor
 
-git clone (https://github.com/Cristianriosrivas/Tu-Guia-Inteligente-buenaventura.git)
+**Cristian Rios Rivas**, estudiante en Buenaventura, Colombia.
 
+## Licencia
 
-cd Tu Guía Inteligente buenaventura
-
-
-⚠️ Sobre el chat y el planificador de IA
-
-*Estas dos funciones llaman directamente a api.anthropic.com desde el navegador sin API key propia, usando una integración especial disponible solo dentro del entorno de artifacts de Claude.ai.
-
-*Funcionan si el archivo se abre/edita dentro de Claude.ai.
-
-*No funcionarán si despliegas el sitio en GitHub Pages, Netlify u otro hosting, porque no hay backend que autentique esas llamadas.
-
-*El resto del folleto (navegación, filtros, favoritos, clima, geolocalización) sí funciona igual en cualquier hosting estático.
-
-👤 Autor
-
-Cristian — estudiante en Buenaventura, Colombia.
-
-📄 Licencia
-
-Proyecto de uso educativo/portafolio. Puedes adaptarlo libremente citando la fuente.
+Código bajo licencia MIT. Las fotografías conservan la licencia de cada autor.

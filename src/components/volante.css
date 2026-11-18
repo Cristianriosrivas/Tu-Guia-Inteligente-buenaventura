@@ -1,0 +1,116 @@
+.volante-limites {
+  position: fixed;
+  inset: 76px 12px 12px 12px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.volante {
+  position: fixed;
+  z-index: 70;
+  bottom: 96px;
+  width: min(400px, calc(100vw - 32px));
+  max-height: min(620px, calc(100svh - 190px));
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 2px var(--mar),
+    0 30px 60px -24px rgba(10, 33, 64, 0.75);
+  transform-origin: bottom right;
+}
+.volante-derecha {
+  right: 24px;
+}
+.volante-izquierda {
+  right: 440px;
+  transform-origin: top right;
+}
+
+.volante-cabeza {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 12px 12px 14px;
+  background: var(--mar);
+  color: var(--papel);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.volante-cabeza:active {
+  cursor: grabbing;
+}
+.volante-agarre {
+  color: var(--sol);
+  flex-shrink: 0;
+}
+.volante-titulos {
+  flex: 1;
+  min-width: 0;
+}
+.volante-titulos h2 {
+  font-size: 1.5rem;
+  font-stretch: 66%;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.volante-titulos span {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 650;
+  color: var(--papel-suave);
+  margin-top: 3px;
+}
+.volante-cerrar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition:
+    transform 160ms var(--ease-out),
+    background-color 180ms ease;
+}
+.volante-cerrar:active {
+  transform: scale(0.92);
+}
+@media (hover: hover) and (pointer: fine) {
+  .volante-cerrar:hover {
+    background: rgba(244, 236, 220, 0.14);
+  }
+}
+
+.volante-cuerpo {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: var(--mar) transparent;
+  scrollbar-width: thin;
+}
+.volante-pie {
+  border-top: 2px solid var(--filete);
+}
+
+@media (max-width: 620px) {
+  .volante,
+  .volante-izquierda {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 82svh;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -20px 50px -20px rgba(10, 33, 64, 0.8);
+  }
+  .volante-cabeza {
+    cursor: default;
+  }
+}
+@media (max-width: 900px) {
+  .volante-izquierda {
+    right: 24px;
+  }
+}

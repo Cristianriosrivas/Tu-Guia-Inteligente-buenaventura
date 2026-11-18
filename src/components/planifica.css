@@ -1,0 +1,276 @@
+.planifica-rejilla {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1.6fr);
+  gap: 48px 56px;
+  align-items: start;
+}
+
+.planifica-form {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  --chip-activo: var(--sol);
+  --chip-texto: var(--mar);
+}
+.planifica-form .entrada {
+  margin-top: 0;
+}
+.planifica-form fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.planifica-form legend,
+.campo-fecha span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.planifica-form .chip.num {
+  min-width: 46px;
+  justify-content: center;
+  font-size: 1rem;
+}
+.campo-fecha input {
+  min-height: 46px;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--papel);
+  color: var(--mar);
+  font-weight: 700;
+  color-scheme: light;
+}
+.nota-temporada {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 650;
+  font-size: var(--t-chico);
+  margin-top: -8px;
+}
+.planifica-boton {
+  align-self: flex-start;
+  min-height: 56px;
+  padding-inline: 28px;
+}
+
+/* ---------- El cartel del plan ---------- */
+
+.cartel-plan {
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: 0 30px 60px -36px rgba(0, 0, 0, 0.7);
+}
+.cartel-plan-cuerpo {
+  padding: clamp(20px, 3vw, 36px);
+}
+.cartel-plan-cabeza {
+  display: grid;
+  gap: 6px;
+  padding-bottom: 18px;
+  border-bottom: 4px solid var(--mar);
+}
+.cartel-plan h3 {
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-stretch: 54%;
+  text-transform: uppercase;
+}
+.cartel-plan-fechas {
+  font-weight: 750;
+  text-transform: capitalize;
+}
+.fuente {
+  justify-self: start;
+  font-size: 0.75rem;
+  font-weight: 750;
+  padding: 4px 10px;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1.5px currentColor;
+}
+.fuente-ia {
+  background: var(--mar);
+  color: var(--sol);
+  box-shadow: none;
+}
+
+.cartel-dias {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0;
+}
+.cartel-dia {
+  padding: 18px 18px 6px 0;
+  border-bottom: 2px solid var(--filete);
+}
+.cartel-dia + .cartel-dia {
+  padding-left: 18px;
+  border-left: 2px solid var(--filete);
+}
+.dia-cabeza {
+  display: grid;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+.dia-num {
+  display: inline-block;
+  margin-right: 4px;
+  padding: 2px 8px 1px;
+  border-radius: 6px;
+  background: var(--mar);
+  color: var(--sol);
+  font-stretch: 80%;
+  vertical-align: 0.12em;
+  font-size: 0.6em;
+}
+.cartel-dia h4 {
+  font-family: var(--f-cartel);
+  font-weight: 900;
+  font-stretch: 62%;
+  font-size: 1.75rem;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.dia-zona {
+  font-size: 0.8125rem;
+  font-weight: 650;
+  color: var(--texto-suave);
+}
+.actividades {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.actividad {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1.5px dashed var(--filete);
+}
+.act-hora {
+  font-weight: 800;
+  font-size: 0.875rem;
+  padding-top: 1px;
+}
+.act-titulo {
+  display: block;
+  font-weight: 750;
+  line-height: 1.3;
+  text-align: left;
+}
+.act-titulo.enlace {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.act-detalle {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--texto-suave);
+}
+.tipo-comida .act-titulo::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--achiote);
+  vertical-align: 2px;
+}
+
+.cartel-pie {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 18px 28px;
+  padding-top: 18px;
+  margin-top: 4px;
+}
+.cartel-pie h5 {
+  margin: 0 0 6px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.cartel-pie p {
+  font-weight: 650;
+  line-height: 1.4;
+}
+.cartel-pie small {
+  display: block;
+  margin-top: 4px;
+  color: var(--texto-suave);
+}
+.cartel-consejos ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.plan-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.plan-acciones .boton {
+  min-height: 46px;
+  font-size: 0.9375rem;
+}
+.plan-aviso {
+  margin-top: 12px;
+  font-weight: 650;
+  word-break: break-word;
+}
+
+@media (max-width: 1000px) {
+  .planifica-rejilla {
+    grid-template-columns: 1fr;
+  }
+  .planifica-form {
+    position: static;
+  }
+  .cartel-pie {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .cartel-dia + .cartel-dia {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .cartel-plan,
+  .cartel-plan * {
+    visibility: visible;
+  }
+  .cartel-plan {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,155 @@
+.velo {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(10, 33, 64, 0.55);
+}
+
+.ficha {
+  position: fixed;
+  z-index: 95;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(560px, 100vw);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-shadow: -24px 0 60px -30px rgba(10, 33, 64, 0.8);
+  scrollbar-color: var(--mar) var(--papel);
+}
+
+.ficha-cerrar {
+  position: absolute;
+  z-index: 3;
+  top: 14px;
+  right: 14px;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--papel);
+  color: var(--mar);
+  box-shadow: 0 6px 16px -6px rgba(10, 33, 64, 0.6);
+  transition: transform 160ms var(--ease-out);
+}
+.ficha-cerrar:active {
+  transform: scale(0.92);
+}
+
+.ficha-foto {
+  margin: 0;
+  position: relative;
+}
+.ficha-foto img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.ficha-foto figcaption {
+  padding: 8px 24px 0;
+  font-size: 0.75rem;
+  color: var(--tinta-suave);
+}
+
+.ficha-cuerpo {
+  padding: 18px 24px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ficha-categoria {
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.ficha h2 {
+  font-size: clamp(2.6rem, 8vw, 3.75rem);
+  font-stretch: 58%;
+  text-transform: uppercase;
+}
+.ficha-categoria {
+  margin-top: -10px;
+}
+.ficha-descripcion {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  max-width: 60ch;
+}
+.ficha-datos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 0;
+  border-top: 3px solid var(--mar);
+}
+.ficha-datos > div {
+  padding: 12px 12px 12px 0;
+  border-bottom: 2px solid var(--filete);
+}
+.ficha-datos dt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+.ficha-datos dd {
+  margin: 4px 0 0;
+  font-weight: 650;
+  line-height: 1.4;
+}
+.ficha-consejo {
+  background: var(--sol);
+  color: var(--mar);
+  padding: 14px 16px;
+  border-radius: 12px;
+  line-height: 1.5;
+}
+.ficha-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ficha-acciones a {
+  text-decoration: none;
+}
+.ficha .sello {
+  top: 46%;
+  right: 20px;
+  width: 130px;
+}
+
+.ficha-asa {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: block;
+  width: 48px;
+  height: 5px;
+  margin: 8px auto -13px;
+  border-radius: 99px;
+  background: var(--papel);
+  box-shadow: 0 0 0 1px rgba(10, 33, 64, 0.2);
+}
+
+@media (max-width: 760px) {
+  .ficha {
+    top: 6vh;
+    left: 0;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -20px 50px -20px rgba(10, 33, 64, 0.8);
+  }
+  .ficha-foto img {
+    border-radius: 20px 20px 0 0;
+  }
+  .ficha-datos {
+    grid-template-columns: 1fr;
+  }
+}

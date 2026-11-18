@@ -1,0 +1,244 @@
+.cartel {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100svh - 67px);
+}
+
+.lamina {
+  position: relative;
+  flex: 1;
+  min-height: clamp(500px, 64vh, 760px);
+  overflow: hidden;
+  padding: clamp(28px, 5vh, 56px) var(--gutter) clamp(28px, 4vh, 44px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: clamp(22px, 3.5vh, 36px);
+}
+
+/* Sol tramado: disco de tinta amarilla con trama roja que crece hacia abajo */
+.sol {
+  position: absolute;
+  right: 7%;
+  top: 7%;
+  width: min(42vw, 560px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--sol);
+  overflow: hidden;
+}
+.sol::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  color: var(--achiote);
+  background-image: var(--trama);
+  background-size: 9px 9px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 35%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 35%, #000 100%);
+  opacity: 0.9;
+}
+
+/* Titular de cartel: dos líneas gigantes con un segundo pase de tinta desregistrado */
+.titular {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--t-gigante);
+  font-weight: 900;
+  font-stretch: 52%;
+  line-height: 0.8;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.linea {
+  position: relative;
+  display: block;
+  width: fit-content;
+}
+.linea .tinta {
+  position: relative;
+  display: block;
+}
+.linea .registro {
+  position: absolute;
+  inset: 0;
+  color: var(--achiote);
+  translate: 0.016em 0.012em;
+  transition: translate 520ms var(--ease-out);
+  pointer-events: none;
+}
+.linea-buena {
+  z-index: 1;
+}
+.linea-buena .tinta {
+  color: var(--sol);
+}
+.linea-ventura {
+  z-index: 3;
+  margin-left: 0.32em;
+}
+.linea-ventura .tinta {
+  color: var(--papel);
+}
+.linea-ventura .registro {
+  color: var(--ola);
+}
+@media (hover: hover) and (pointer: fine) {
+  .titular:hover .registro {
+    translate: 0 0;
+  }
+}
+
+.escena {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.escena canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.bajada {
+  position: relative;
+  z-index: 3;
+  max-width: 36ch;
+  font-size: clamp(1.0625rem, 1.4vw, 1.3125rem);
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--papel);
+}
+
+/* Banda inferior: celdas de programación con datos en vivo */
+.banda {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(400px, 1.85fr);
+}
+.celda-dato {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 22px 22px;
+  border-right: 2px solid var(--mar);
+  min-width: 0;
+}
+.dato-etiqueta {
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+.dato-valor {
+  font-family: var(--f-cartel);
+  font-weight: 900;
+  font-stretch: 58%;
+  font-size: clamp(2.4rem, 3.7vw, 3.75rem);
+  line-height: 0.95;
+  white-space: nowrap;
+}
+.dato-nota {
+  font-size: var(--t-chico);
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+.celda-plan {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'titulo boton'
+    'dias dias'
+    'gustos gustos';
+  align-items: center;
+  gap: 10px 16px;
+  padding: 16px 22px 18px;
+  --chip-activo: var(--sol);
+  --chip-texto: var(--mar);
+}
+.plan-titulo {
+  grid-area: titulo;
+  font-size: 1.9rem;
+  font-stretch: 66%;
+  text-transform: uppercase;
+}
+.plan-fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.plan-fila:first-of-type {
+  grid-area: dias;
+}
+.plan-fila:last-of-type {
+  grid-area: gustos;
+}
+.celda-plan .chip {
+  min-height: 38px;
+  padding: 6px 13px;
+}
+.plan-boton {
+  grid-area: boton;
+}
+
+@media (max-width: 1180px) {
+  .banda {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .celda-plan {
+    grid-column: 1 / -1;
+  }
+  .celda-dato:nth-child(4) {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .lamina {
+    min-height: max(600px, calc(100svh - 67px - 96px));
+  }
+  .sol {
+    width: 74vw;
+    right: -14vw;
+    top: 4%;
+  }
+  .titular {
+    font-size: clamp(4.5rem, 25vw, 9rem);
+  }
+  .linea-ventura {
+    margin-left: 0;
+  }
+  .bajada {
+    max-width: 30ch;
+    margin-top: auto;
+  }
+  .banda {
+    grid-template-columns: 1fr 1fr;
+  }
+  .celda-dato {
+    padding: 16px;
+    border-bottom: 2px solid var(--mar);
+  }
+  .celda-dato:nth-child(2n) {
+    border-right: 0;
+  }
+  .celda-plan {
+    grid-template-areas:
+      'titulo'
+      'dias'
+      'gustos'
+      'boton';
+    grid-template-columns: 1fr;
+    padding: 20px 16px 22px;
+  }
+  .plan-boton {
+    max-height: none;
+    min-height: 56px;
+  }
+}

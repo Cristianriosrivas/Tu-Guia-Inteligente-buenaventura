@@ -1,0 +1,5 @@
+# Configuración mínima para desplegar la función de IA con la CLI de Supabase.
+[functions.guia-ia]
+# La función se protege con lista de orígenes y límite por IP; no exige JWT
+# para que la página estática pueda llamarla directamente.
+verify_jwt = false
