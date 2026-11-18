@@ -40,8 +40,8 @@ export function Cierre() {
               Clima, oleaje y marea: <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a> (CC BY 4.0). Mapa: ©{' '}
               <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">
                 OpenStreetMap
-              </a>{' '}
-              y <a href="https://carto.com/attributions" target="_blank" rel="noreferrer">CARTO</a>. Asistente: motor local con los datos de la guía y, si está configurada, la API
+              </a>
+              . Asistente: motor local con los datos de la guía y, si está configurada, la API
               gratuita de Gemini.
             </p>
           </div>

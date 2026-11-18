@@ -10,7 +10,7 @@ Todo es **gratis**: librerías de código abierto, datos abiertos y la capa grat
 | --- | --- |
 | **Cartel de inicio** | Ballena jorobada 3D hecha por código (Three.js) con sombreado de tintas planas y trama de medio tono. Datos en vivo (temperatura, oleaje, atardecer, temporada de ballenas) y planificador rápido. |
 | **El mar de hoy** | Curva de marea de las próximas 24 h, oleaje, temperatura del agua y pronóstico de 5 días (Open-Meteo, sin clave). |
-| **Lugares** | 13 lugares reales con fotos libres de Wikimedia Commons en duotono, filtros, orden por cercanía con tu ubicación y vista de mapa (OpenStreetMap + CARTO). Ficha detallada con cómo llegar, mejor época y consejo local. |
+| **Lugares** | 13 lugares reales con fotos libres de Wikimedia Commons en duotono, filtros, orden por cercanía con tu ubicación y vista de mapa (OpenStreetMap). Ficha detallada con cómo llegar, mejor época y consejo local. |
 | **Rutas** | 5 recorridos en una tira de carteles que se arrastra; cada parada abre su lugar. |
 | **Dormir y comer** | Hospedaje y restaurantes por zona, y los platos típicos del Pacífico. |
 | **Negocios locales** | Directorio de emprendimientos y botón para registrar un negocio (abre un issue en este repositorio). |
@@ -53,13 +53,13 @@ La función limita el tamaño de las preguntas, acepta solo los orígenes permit
 
 ## Tecnología
 
-React 19 · Vite · TypeScript · Three.js con React Three Fiber · Motion · Leaflet · Lucide · Open-Meteo · OpenStreetMap/CARTO · Wikimedia Commons · Gemini API · Supabase Edge Functions.
+React 19 · Vite · TypeScript · Three.js con React Three Fiber · Motion · Leaflet · Lucide · Open-Meteo · OpenStreetMap · Wikimedia Commons · Gemini API · Supabase Edge Functions.
 
 ## Créditos
 
 - Fotografías: autores de Wikimedia Commons, con licencias Creative Commons (detalle en el pie de la página y en `src/data/fotos.ts`).
 - Clima y mar: [Open-Meteo](https://open-meteo.com/) (CC BY 4.0).
-- Mapa: © colaboradores de [OpenStreetMap](https://www.openstreetmap.org/copyright) y [CARTO](https://carto.com/attributions).
+- Mapa: © colaboradores de [OpenStreetMap](https://www.openstreetmap.org/copyright).
 - La versión original de un solo archivo está en `legacy/tu-guia-original.html`.
 
 ## Autor

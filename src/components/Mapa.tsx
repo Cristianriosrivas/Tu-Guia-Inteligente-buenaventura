@@ -40,9 +40,8 @@ export default function Mapa({ lugares, ubicacion, onAbrir }: Props) {
     <div className="mapa">
       <MapContainer center={[3.92, -77.2]} zoom={10} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-          subdomains="abcd"
+          attribution='&copy; colaboradores de <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
           maxZoom={19}
         />
         {lugares.map((l, i) => (
